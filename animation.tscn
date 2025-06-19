@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl8rb626cel1t"]
+
+[sub_resource type="Animation" id="Animation_nlgr8"]
+resource_name = "Animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ljyfo"]
+_data = {
+&"Animation": SubResource("Animation_nlgr8")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_ljyfo")
+}

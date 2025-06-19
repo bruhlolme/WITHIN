@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://di1mdwypcqw3q"]
+
+[ext_resource type="Script" uid="uid://bisobh5k05xpo" path="res://switch_layer_point.gd" id="1_6pnjx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfg47"]
+size = Vector2(15.9997, 16.0511)
+
+[node name="SwitchLayerPoint" type="Area2D"]
+script = ExtResource("1_6pnjx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0257235, 0.000165224)
+rotation = 1.56437
+shape = SubResource("RectangleShape2D_rfg47")
+debug_color = Color(0.887141, 0.218934, 0.618585, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

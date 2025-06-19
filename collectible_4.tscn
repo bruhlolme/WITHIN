@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6tni68h8dq2u"]
+
+[ext_resource type="Script" uid="uid://bve8id8x84da0" path="res://collectible_4.gd" id="1_fj2ao"]
+[ext_resource type="Texture2D" uid="uid://ct7utfh3se87s" path="res://pixil-frame-0_8-removebg-preview.png" id="1_jinl1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fj2ao"]
+radius = 5.09902
+
+[node name="Collectible4" type="Area2D"]
+script = ExtResource("1_fj2ao")
+
+[node name="Pixil-frame-08-removebg-preview" type="Sprite2D" parent="."]
+scale = Vector2(0.0268007, 0.0382775)
+texture = ExtResource("1_jinl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -5)
+shape = SubResource("CircleShape2D_fj2ao")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

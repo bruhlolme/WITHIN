@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0ebrwmdr0oaq"]
+
+[ext_resource type="Script" uid="uid://dv1n7ry2432to" path="res://collectible_2.gd" id="1_p3bfl"]
+[ext_resource type="Texture2D" uid="uid://dcyfbne0x377e" path="res://pixil-frame-0_6-removebg-preview.png" id="1_u5wqb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3bfl"]
+radius = 4.11462
+height = 13.9448
+
+[node name="Collectible2" type="Area2D"]
+script = ExtResource("1_p3bfl")
+
+[node name="Pixil-frame-06-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(0.0268007, 0.0382775)
+texture = ExtResource("1_u5wqb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.309131
+shape = SubResource("CapsuleShape2D_p3bfl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
