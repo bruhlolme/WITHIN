@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://b41hi75wv3f17"]
+
+[ext_resource type="Texture2D" uid="uid://c6itbjiyxkt8m" path="res://pixil-frame-0 2 (1).png" id="2_v6xrn"]
+
+[sub_resource type="GDScript" id="GDScript_ba8gm"]
+script/source = "extends Area2D
+
+var is_unlocked = false
+var door_opened = false
+var ready_for_transition = false
+
+func unlock():
+	is_unlocked = true
+	$AnimatedSprite2D.play(\"DoorOpen\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0phs7"]
+atlas = ExtResource("2_v6xrn")
+region = Rect2(250, 80, 50, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50cdl"]
+atlas = ExtResource("2_v6xrn")
+region = Rect2(250, 108, 50, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5njw"]
+atlas = ExtResource("2_v6xrn")
+region = Rect2(250, 150, 10, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xadh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0phs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50cdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5njw")
+}],
+"loop": false,
+"name": &"DoorOpen",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hwww"]
+size = Vector2(48, 20)
+
+[node name="Door" type="Area2D"]
+script = SubResource("GDScript_ba8gm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_4xadh")
+animation = &"DoorOpen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6hwww")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
