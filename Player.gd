@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
+@onready var anime = $HealthBar
 @onready var timer = $Timer  # Add a Timer node in the scene and name it "Timer"
 @onready var label = $TimerLabel  
 @onready var health_bar = $UI/HealthBar # Optional: A Label node to show countdown
@@ -55,10 +56,10 @@ func _on_timer_timeout():
 func _update_health_animation():
 	match health:
 		3:
-			anim.play("Normal")
+			anime.play("Normal")
 		2:
-			anim.play("Moderate")
+			anime.play("Moderate")
 		1:
-			anim.play("High")
+			anime.play("High")
 		_:
-			anim.play("Dead")
+			anime.play("Dead")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://buvkiteeb80jl"]
+[gd_scene load_steps=39 format=3 uid="uid://buvkiteeb80jl"]
 
 [ext_resource type="Script" uid="uid://b1r11rffdn2rt" path="res://Player.gd" id="1_kne1u"]
 [ext_resource type="Texture2D" uid="uid://cnfajxi6lnv4k" path="res://Pixelart FreeVersion/WalkAnimations.png" id="2_e80uo"]
 [ext_resource type="Texture2D" uid="uid://chfw5q7qdbkgv" path="res://Pixelart FreeVersion/IdleAnimations.png" id="3_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://uur8p5df6ir" path="res://All.png" id="4_e80uo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dd465"]
 atlas = ExtResource("2_e80uo")
@@ -232,6 +233,18 @@ animations = [{
 radius = 8.0
 height = 16.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxr5p"]
+atlas = ExtResource("4_e80uo")
+region = Rect2(675, 66, 45, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdg3f"]
+atlas = ExtResource("4_e80uo")
+region = Rect2(774, 84, 43, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtqjt"]
+atlas = ExtResource("4_e80uo")
+region = Rect2(820, 117, 41, 9)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_kne1u"]
 animations = [{
 "frames": [],
@@ -239,17 +252,26 @@ animations = [{
 "name": &"Dead",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxr5p")
+}],
 "loop": true,
 "name": &"High",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdg3f")
+}],
 "loop": true,
 "name": &"Moderate",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtqjt")
+}],
 "loop": true,
 "name": &"Normal",
 "speed": 5.0
@@ -300,5 +322,7 @@ offset_bottom = 23.0
 wait_time = 20.0
 
 [node name="HealthBar" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -44)
 sprite_frames = SubResource("SpriteFrames_kne1u")
-animation = &"Dead"
+animation = &"Normal"
+autoplay = "Normal"
